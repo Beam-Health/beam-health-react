@@ -1,0 +1,396 @@
+.App {
+  text-align: center;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+ }
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-link {
+  color: #61dafb;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+ }
+  to {
+    transform: rotate(360deg);
+ }
+}
+.provider-video-container {
+  display: flex;
+}
+.provider-video-container > div:first-of-type {
+  position: relative;
+}
+.encounter-item {
+  margin: 10px;
+  width: 180px;
+  border-radius: 4px;
+  border: 1px #867de2 solid;
+}
+.encounter-item > div:first-of-type {
+  padding: 10px;
+  font-size: 0.8rem;
+}
+.encounter-item > div:last-of-type {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #867de2;
+  color: #fff;
+  font-size: 0.8rem;
+}
+.encounter-item > div:last-of-type:hover {
+  background-color: #5048a4;
+  transition: background-color 0.4s;
+}
+.active-patients-container {
+  background-color: #ddd;
+}
+.active-parent-collapsed {
+  background-color: #fff;
+  border-radius: 40px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  margin: 10px 10px 0 0;
+  cursor: pointer;
+}
+.new-patients {
+  background-color: #5048a4;
+  color: #fff;
+  font-weight: 600;
+}
+.active-patient-parent {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  height: 100%;
+  min-width: 200px;
+  width: 200px;
+  transition: width 0.4s;
+}
+.active-patient-title {
+  padding: 10px;
+  font-weight: 600;
+  background-color: #867de2;
+  color: #fff;
+}
+.active-patient-title span {
+  cursor: pointer;
+}
+.active-patient-title img {
+  height: 15px;
+  width: 15px;
+  margin-left: 15px;
+  filter: invert(1);
+}
+.provider-video-controls {
+  position: absolute;
+  width: 400px;
+  height: 80px;
+  background-color: rgba(30, 30, 30, 0.6);
+  border-radius: 40px;
+  z-index: 99;
+  bottom: 20px;
+  left: calc(50vw - 300px);
+  text-align: center;
+  line-height: 80px;
+  opacity: 0.4;
+  transition: opacity 0.6s ease;
+}
+.provider-video-controls i {
+  background-color: rgba(250, 250, 250, 0.8);
+  font-size: 1.6rem;
+  padding: 10px;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 25px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.provider-video-controls i span {
+  display: none;
+}
+.provider-video-controls .fa-video-slash, .provider-video-controls .fa-microphone-slash {
+  background-color: #d64546;
+}
+.provider-video-controls .fa-phone-slash {
+  width: 80px;
+  color: #fff;
+  border-color: #d64546;
+  background-color: #d64546;
+  margin-left: 40px;
+}
+.provider-video-controls:hover {
+  opacity: 1;
+  transition: opacity 0.6s;
+}
+/* Assuming the name of the PreviewPublisher's container is previewContainer */
+#previewContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  border-color: black;
+  border-radius: 5px;
+  border-style: dashed;
+  width: 640px;
+  height: 480px;
+  padding: 20px;
+}
+/* Assuming the name of the Room's container is roomContainer */
+#roomContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ddd;
+  position: relative;
+}
+#roomContainer > .OT_publisher {
+  top: 25px;
+  right: 25px;
+  position: absolute;
+  border-radius: 10px;
+}
+#roomContainer > .OT_screenshare {
+  top: 25px;
+  left: 25px;
+  position: absolute;
+  border-radius: 10px;
+}
+.publisher-audio-button, .OT_audio-level-meter__audio-only-img {
+  display: none;
+}
+.OT_audio-level-meter__value {
+  background-image: radial-gradient(circle, #867de2 0%, rgba(151, 206, 0, 0) 100%) !important;
+}
+.OT_video-poster {
+  background-image: none !important;
+  background-color: #867de2;
+  color: #fff !important;
+  height: 160px !important;
+  width: 160px !important;
+  border-radius: 80px !important;
+  position: relative !important;
+  top: calc(50% - 80px) !important;
+  left: calc(50% - 80px) !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  line-height: 160px !important;
+  font-size: 48px !important;
+}
+/* HISTORY TABLE */
+.history-table {
+  min-width: 800px;
+  overflow-x: scroll;
+}
+.history-table-header, .min-history-table-header, .patient-table-header {
+  display: flex;
+  background: #867de2;
+  color: #f5f5f5;
+  border-radius: 4px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  margin-bottom: 4px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.history-table-header div, .min-history-table-header div, .patient-table-header div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-right: 1px #ddf solid;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  font-size: 14px;
+  padding: 0 10px;
+}
+.history-table-body, .min-history-table-body, .patient-table-body {
+  display: flex;
+  border: 1px #867de2 solid;
+  color: #000;
+  border-radius: 4px;
+  height: 22px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 2px;
+  padding: 5px 0;
+  min-width: 800px;
+}
+.history-table-body > div, .min-history-table-body > div, .patient-table-body > div {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 8px;
+  align-items: center;
+  border-right: 1px #867de2 solid;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.history-table-header div:first-of-type, .min-history-table-header div:first-of-type, .patient-table-header div:first-of-type, .history-table-body div:first-of-type, .min-history-table-body div:first-of-type, .patient-table-body div:first-of-type {
+  width: 20%;
+  text-align: left;
+}
+.history-table-header div:nth-of-type(2), .min-history-table-header div:nth-of-type(2), .patient-table-header div:nth-of-type(2), .history-table-body div:nth-of-type(2), .min-history-table-body div:nth-of-type(2), .patient-table-body div:nth-of-type(2) {
+  width: 20%;
+}
+.history-table-header div:nth-of-type(3), .min-history-table-header div:nth-of-type(3), .patient-table-header div:nth-of-type(3), .history-table-body div:nth-of-type(3), .min-history-table-body div:nth-of-type(3), .patient-table-body div:nth-of-type(3) {
+  width: 20%;
+}
+.history-table-header div:nth-of-type(4), .min-history-table-header div:nth-of-type(4), .patient-table-header div:nth-of-type(4), .history-table-body div:nth-of-type(4), .min-history-table-body div:nth-of-type(4), .patient-table-body div:nth-of-type(4) {
+  width: 10%;
+}
+.history-table-header div:nth-of-type(5), .min-history-table-header div:nth-of-type(5), .patient-table-header div:nth-of-type(5), .history-table-body div:nth-of-type(5), .min-history-table-body div:nth-of-type(5), .patient-table-body div:nth-of-type(5) {
+  width: 10%;
+}
+.history-table-header div:nth-of-type(6), .min-history-table-header div:nth-of-type(6), .patient-table-header div:nth-of-type(6), .history-table-body div:nth-of-type(6), .min-history-table-body div:nth-of-type(6), .patient-table-body div:nth-of-type(6) {
+  width: 20%;
+}
+.min-history-table-header div:first-of-type, .min-history-table-body div:first-of-type {
+  width: 20%;
+  text-align: left;
+}
+.min-history-table-header div:nth-of-type(2), .min-history-table-body div:nth-of-type(2) {
+  width: 30%;
+}
+.min-history-table-header div:nth-of-type(3), .min-history-table-body div:nth-of-type(3) {
+  width: 30%;
+}
+.min-history-table-header div:nth-of-type(4), .min-history-table-body div:nth-of-type(4) {
+  width: 20%;
+}
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: #000;
+  font-weight: 600;
+}
+.table-controls > div:first-of-type {
+  display: flex;
+}
+.table-controls .nav-button-rounded {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(81, 107, 152, 0.2);
+  line-height: 36px;
+  background-color: #867de2;
+  text-align: center;
+  border: 2px #867de2 solid;
+  margin: 10px 20px;
+  outline: none;
+  cursor: pointer;
+}
+.table-controls .nav-button-rounded .fa-caret-left, .table-controls .nav-button-rounded .fa-caret-right {
+  color: #f5f5f5;
+}
+.table-controls .nav-button-rounded:last-of-type {
+  margin-right: 0;
+}
+.table-controls .nav-button-rounded:hover {
+  box-shadow: 0 4px 8px rgba(81, 107, 152, 0.6);
+  transform: background-color 0.2s;
+}
+.table-controls .nav-button-rounded:disabled {
+  background-color: #969696;
+  border-color: #969696;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.table-controls .nav-button-rounded:disabled .fas {
+  color: #d5d5d5;
+}
+.table-controls .fa-spin {
+  line-height: 60px;
+}
+.table-controls span {
+  line-height: 60px;
+}
+.dashboard-schedule-container {
+  margin: 20px;
+  margin-left: 0;
+  height: calc(100vh - 40px);
+  background-color: #fff;
+  border-radius: 8px;
+}
+.dashboard-schedule-container > div:first-of-type {
+  padding: 20px;
+  text-align: left;
+  font-weight: 600;
+}
+.dashboard-schedule-container .upcoming-schedule-container {
+  margin: 0 10px;
+}
+.dashboard-schedule-container .upcoming-schedule-item {
+  width: 100%;
+  background-color: #e7e5f9;
+  border: 2px #867de2 solid;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.dashboard-schedule-container .upcoming-schedule-item > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.dashboard-schedule-container .upcoming-schedule-item > div i {
+  margin-right: 10px;
+}
+.patient-table-header {
+  width: 100%;
+}
+.patient-table-body {
+  width: 100%;
+}
+.patient-table-header div:first-of-type, .patient-table-body div:first-of-type {
+  width: 30%;
+  text-align: left;
+}
+.patient-table-header div:nth-of-type(2), .patient-table-body div:nth-of-type(2) {
+  width: 20%;
+}
+.patient-table-header div:nth-of-type(3), .patient-table-body div:nth-of-type(3) {
+  width: 30%;
+}
+.patient-table-header div:nth-of-type(4), .patient-table-body div:nth-of-type(4) {
+  width: 20%;
+}
