@@ -1,70 +1,118 @@
-# Getting Started with Create React App
+# Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Documentation for setting up Beam Health's React SDK within your project.
 
-## Available Scripts
+## Install with npm
 
 In the project directory, you can run:
 
-### `npm start`
+`npm install beam-health-react`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Connect to Beam client
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`await connectUser(client_id, client_secret)`
 
-### `npm test`
+## Components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Provider Video
+The ProviderVideo component adds the provider side UI for the waiting room. Its subcomponents include the video UI and the list of active patients in the waiting room. Start a consultation by simply adding a patient into the call.
 
-### `npm run build`
+#### Example Usage
+`<ProviderVideo onEndCall={this.EndCall} showVideo={false} themeColor=”#FF0000” />`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Props
+* onEndCall - Callback function that is triggered when the call is ended.
+* showVideo - Turn on provider video when entering a call. (boolean, default = true)
+* showAudio - Turn on provider audio when entering a call. (boolean, default = true)
+* themeColor - Your customized brand color. (string, default = #867DE2)
+* requirePasscode - Enable to require patients to enter a passcode to join the call. (boolean, default = false)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### PatientVideo
+The PatientVideo component adds the UI for the Patient Waiting Room. This iFrame component is rendered from the Beam Dashboard and provides a UI for patients to enter their credentials, add payment information (if enabled), complete intake forms (if enabled), and get checked in.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Example Usage
+`<PatientVideo onEndCall={this.EndCall} themeColor=”#FF0000” />`
 
-### `npm run eject`
+#### Props
+* onEndCall - Callback function that is triggered when the call is ended.
+* themeColor - Your customized brand color. (string, default = #867DE2)
+* allowRating - Enables a rating UI to rate the quality of service once the consultation is completed (boolean, default = false)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### ConsultTable
+The ConsultTable component shows a table with a complete log of all your consultations.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Example Usage
+`<ConsultTable showPaymentData={true} enableSearch={true} resultsPerPage=20 />`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Props
+* showPaymentData - Include columns for payment amount and status (boolean, default = false)
+* enableSearch - Include a search bar above the table for quickly finding records (boolean, default = false)
+* themeColor - Your customized brand color. (string, default = #867DE2)
+* resultsPerPage - Number of records per page (integer, default = 10)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### PatientTable
+The PatientTable component shows a table with a complete log of all your patients.
 
-## Learn More
+#### Example Usage
+`<PatientTable enableSearch={true} resultsPerPage=20 />`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Props
+* enableSearch - Include a search bar above the table for quickly finding records (boolean, default = false)
+* themeColor - Your customized brand color. (string, default = #867DE2)
+* resultsPerPage - Number of records per page (integer, default = 10)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### PaymentTable
+The PaymentTable component shows a table with a complete log of all your patients.
 
-### Code Splitting
+#### Example Usage
+`<PaymentTable enableSearch={true} resultsPerPage=20 />`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Props
+* enableSearch - Include a search bar above the table for quickly finding records (boolean, default = false)
+* themeColor - Your customized brand color. (string, default = #867DE2)
+* resultsPerPage - Number of records per page (integer, default = 10)
 
-### Analyzing the Bundle Size
+### AppointmentCalendar
+The AppointmentCalendar component shows the calendar UI for scheduling patients.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Example Usage
+`<AppointmentCalendar themeColor=”#FF0000” accentColor=”#303030” allowViewToggle={true} />`
 
-### Making a Progressive Web App
+#### Props
+* themeColor - Your customized brand color. (string, default = #867DE2)
+* accentColor - Your customized secondary brand color. (string, default = themeColor)
+* allowViewToggle - Shows toggle for month/day views instead of just week. (boolean, default = false)
+* startTime - Default start time for calendar (integer, default = 9)
+* endTime - Default end time for calendar (integer, default = 17)
+* alowTimeToggle - Shows toggle adjusting start and end times. (boolean, default = false)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### AppointmentList
+The Appointments component shows the UI with a list of upcoming consultations in your schedule
 
-### Advanced Configuration
+#### Example Usage
+`<AppointmentList showPast={true} themeColor=”#FF0000” />`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Props
+* showUpcoming - Show upcoming appointments (boolean, default = true)
+* showPast - Show past appointments (boolean, default = false)
+* themeColor - Your customized brand color. (string, default = #867DE2)
 
-### Deployment
+### PatientIntakeTable
+The PatientIntakeTable component shows the UI for creating intake forms.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Example Usage
+`<PatientIntakeTable themeColor=”#FF0000” />`
 
-### `npm run build` fails to minify
+#### Props
+* enableSearch - Include a search bar above the table for quickly finding records (boolean, default = false)
+* themeColor - Your customized brand color. (string, default = #867DE2)
+* resultsPerPage - Number of records per page (integer, default = 10)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### PatientIntakeBuilder
+The PatientIntakeBuilder component shows the UI for creating intake forms.
+
+#### Example Usage
+`<PatientIntakeBuilder themeColor=”#FF0000” />`
+
+#### Props
+* themeColor - Your customized brand color. (string, default = #867DE2)
