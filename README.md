@@ -14,6 +14,7 @@ In the project directory, you can run:
 
 ## Add Styling using CDN
 You can add the following to your `index.html` page:
+
 `<link rel="stylesheet" href="https://beam-widget.s3.us-east-2.amazonaws.com/beamhealth.css" />`
 
 ## Components
@@ -26,21 +27,17 @@ The ProviderVideo component adds the provider side UI for the waiting room. Its 
 
 #### Props
 * onEndCall - Callback function that is triggered when the call is ended.
-* showVideo - Turn on provider video when entering a call. (boolean, default = true)
-* showAudio - Turn on provider audio when entering a call. (boolean, default = true)
 * themeColor - Your customized brand color. (string, default = #867DE2)
-* requirePasscode - Enable to require patients to enter a passcode to join the call. (boolean, default = false)
 
 ### PatientVideo
-The PatientVideo component adds the UI for the Patient Waiting Room. This iFrame component is rendered from the Beam Dashboard and provides a UI for patients to enter their credentials, add payment information (if enabled), complete intake forms (if enabled), and get checked in.
+The PatientVideo component adds the UI for the Patient Waiting Room. The patient can enter their credentials and get checked in - within seconds!
 
 #### Example Usage
 `<PatientVideo onEndCall={this.EndCall} themeColor=”#FF0000” />`
 
 #### Props
-* onEndCall - Callback function that is triggered when the call is ended.
+* showRatings - Allow patients to rate their experience (boolean, default = false)
 * themeColor - Your customized brand color. (string, default = #867DE2)
-* allowRating - Enables a rating UI to rate the quality of service once the consultation is completed (boolean, default = false)
 
 ### ConsultTable
 The ConsultTable component shows a table with a complete log of all your consultations.
