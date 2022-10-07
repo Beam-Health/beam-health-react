@@ -62,5 +62,7 @@ async function connectUser(client_id, client_secret) {
   });
   const auth = await getClientCredentials();
   sessionStorage.removeItem('beam-token');
+  sessionStorage.removeItem('beam-client');
   sessionStorage.setItem('beam-token', auth.access_token);
+  sessionStorage.setItem('beam-client', client_id);
 }
