@@ -12,6 +12,10 @@ In the project directory, you can run:
 
 `await connectUser(client_id, client_secret)`
 
+## Add Styling using CDN
+You can add the following to your `index.html` page:
+`<link rel="stylesheet" href="https://beam-widget.s3.us-east-2.amazonaws.com/beamhealth.css" />`
+
 ## Components
 
 ### Provider Video
