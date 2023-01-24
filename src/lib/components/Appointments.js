@@ -18,7 +18,7 @@ export default class Appointments extends Component {
         'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
         'Content-Type': 'application/json'
       },
-      url: 'https://beam-aditya.ngrok.io/v1/appointments/',
+      url: 'https://providers.beam.health/v1/appointments/',
       params: {
         staff_id: 1,
         practice_id: 54,

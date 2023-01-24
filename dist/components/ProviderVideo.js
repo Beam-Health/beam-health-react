@@ -53,7 +53,7 @@ class ProviderVideo extends _react.Component {
           'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
           'Content-Type': 'application/json'
         },
-        url: 'https://beam-aditya.ngrok.io/v1/vonage_token/'
+        url: 'https://providers.beam.health/v1/vonage_token/'
       });
       const room = new VideoExpress.Room({
         apiKey: response.data.apiKey,
@@ -148,7 +148,7 @@ class ProviderVideo extends _react.Component {
           'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
           'Content-Type': 'application/json'
         },
-        url: 'https://beam-aditya.ngrok.io/v1/provider_end_call/',
+        url: 'https://providers.beam.health/v1/provider_end_call/',
         params: {
           meeting_code: this.state.meeting_code
         }
@@ -177,7 +177,7 @@ class ProviderVideo extends _react.Component {
           'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
           'Content-Type': 'application/json'
         },
-        url: 'https://beam-aditya.ngrok.io/v1/vonage_token/'
+        url: 'https://providers.beam.health/v1/vonage_token/'
       });
       const room = new VideoExpress.Room({
         apiKey: response.data.apiKey,
@@ -217,7 +217,7 @@ class ProviderVideo extends _react.Component {
           'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
           'Content-Type': 'application/json'
         },
-        url: 'https://beam-aditya.ngrok.io/v1/create_meeting_with_code/',
+        url: 'https://providers.beam.health/v1/create_meeting_with_code/',
         params: {
           meeting_code: meeting_code,
           client_id: sessionStorage.getItem('beam-client'),

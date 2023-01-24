@@ -8,7 +8,7 @@ async function connectUser(client_id, client_secret){
     const axios = require('axios');
     const oauth = require('axios-oauth-client');
     const getClientCredentials = oauth.client(axios.create(), {
-      url: 'https://beam-aditya.ngrok.io/o/token/',
+      url: 'https://providers.beam.health/o/token/',
       grant_type: 'client_credentials',
       client_id: client_id,
       client_secret: client_secret,

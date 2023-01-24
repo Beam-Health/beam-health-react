@@ -54,7 +54,7 @@ export default class Telehealth extends Component {
         'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
         'Content-Type': 'application/json'
       },
-      url: 'https://beam-aditya.ngrok.io/v1/vonage_token/',
+      url: 'https://providers.beam.health/v1/vonage_token/',
     });
 
     const room = new VideoExpress.Room({
@@ -140,7 +140,7 @@ export default class Telehealth extends Component {
         'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
         'Content-Type': 'application/json'
       }, 
-      url: 'https://beam-aditya.ngrok.io/v1/patient_checkin/',
+      url: 'https://providers.beam.health/v1/patient_checkin/',
       params:data
     });
     if(response.status=200) {
@@ -167,7 +167,7 @@ export default class Telehealth extends Component {
         'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
         'Content-Type': 'application/json'
       }, 
-      url: 'https://beam-aditya.ngrok.io/v1/patient_update/', 
+      url: 'https://providers.beam.health/v1/patient_update/', 
       params:data
     });
     if(response.status=200) {
@@ -185,7 +185,7 @@ export default class Telehealth extends Component {
         'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
         'Content-Type': 'application/json'
       },
-      url: 'https://beam-aditya.ngrok.io/v1/vonage_token/',
+      url: 'https://providers.beam.health/v1/vonage_token/',
     });
 
     const room = new VideoExpress.Room({
@@ -243,7 +243,7 @@ export default class Telehealth extends Component {
         'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
         'Content-Type': 'application/json'
       }, 
-      url: 'https://beam-aditya.ngrok.io/v1/join-meeting-code/',
+      url: 'https://providers.beam.health/v1/join-meeting-code/',
       params: {
         code: this.state.meetingCode,
         patient_id: this.state.patient_id
@@ -266,7 +266,7 @@ export default class Telehealth extends Component {
         'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
         'Content-Type': 'application/json'
       }, 
-      url: 'https://beam-aditya.ngrok.io/v1/patient_checkout/',
+      url: 'https://providers.beam.health/v1/patient_checkout/',
       params: {
         id: this.state.patient_id
       }

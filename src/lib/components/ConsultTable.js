@@ -28,7 +28,7 @@ export default class ConsultTable extends Component {
         'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
         'Content-Type': 'application/json'
       },
-      url: 'https://beam-aditya.ngrok.io/v1/encounters/',
+      url: 'https://providers.beam.health/v1/encounters/',
       params: {
         staff_id: 1,
         practice_id: 54,

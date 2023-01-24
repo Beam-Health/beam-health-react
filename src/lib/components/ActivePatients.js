@@ -45,7 +45,7 @@ export default class ActivePatients extends Component {
         'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
         'Content-Type': 'application/json'
       },
-      url: 'https://beam-aditya.ngrok.io/v1/provider_telehealth/',
+      url: 'https://providers.beam.health/v1/provider_telehealth/',
       params: {
         client_id: sessionStorage.getItem('beam-client')
       },
@@ -65,7 +65,7 @@ export default class ActivePatients extends Component {
         'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
         'Content-Type': 'application/json'
       },
-      url: 'https://beam-aditya.ngrok.io/v1/provider_telehealth/',
+      url: 'https://providers.beam.health/v1/provider_telehealth/',
       params: {
         client_id: sessionStorage.getItem('beam-client')
       },
@@ -82,7 +82,7 @@ export default class ActivePatients extends Component {
         'Authorization': 'Bearer ' + sessionStorage.getItem('beam-token'),
         'Content-Type': 'application/json'
       },
-      url: 'https://beam-aditya.ngrok.io/v1/telehealth_add_patient/',
+      url: 'https://providers.beam.health/v1/telehealth_add_patient/',
       params: {
         data: this.props.roomData,
         session: this.props.roomData.session,
